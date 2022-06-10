@@ -1,7 +1,8 @@
 import initialJSON from './initialJSON.json'
 
 const initialState = initialJSON
-const changeRow = ( state: any[], payload: { index: any; field: any; value: any } ) => {  
+const changeRow = ( state: any[], payload: { index: any; field: any; value: any } ) => { 
+  
   let list = state.map((item,index)=>{
     if(index === payload.index) {   
       // target item 

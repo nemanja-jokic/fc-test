@@ -10,7 +10,7 @@ interface GroupProps {
 }
 
 function Group({ group, onChangeGroup, index } : GroupProps) {
-    
+    // console.log(`group- ${index}`)
     return (
         <div style={{
             display: 'flex',
