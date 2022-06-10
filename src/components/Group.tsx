@@ -16,6 +16,7 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             display: 'flex',
             padding:20,
             margin:10,
+            overflowX: 'scroll', 
         }}> 
             {
                 Object.entries(group).map(([field,value], indx) => <React.Fragment key={`group-${index}-field${indx}`}>

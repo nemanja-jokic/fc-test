@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 // Components
@@ -30,9 +30,15 @@ function App() {
       }
     setTimeout(() => {
       setCurrent(current.concat(state.slice(count.prev + 10, count.next + 10)))
-    }, 1000)
+    }, 500)
     setCount((prevState) => ({ prev: prevState.prev + 10, next: prevState.next + 10 }))
   }
+
+  useEffect(() => {
+      setCurrent(state.slice(0, count.next))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state])
+  
   
   return (
     <div className="App">    
