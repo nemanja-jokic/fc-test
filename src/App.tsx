@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 // Components
 import Group from './components/Group';

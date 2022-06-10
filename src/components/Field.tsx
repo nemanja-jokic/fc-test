@@ -29,7 +29,7 @@ function Field({
 
     const generateInputField = () => {
         // If the id field exists, it will not have an input field for editing.
-        if(field === '_id') 
+        if(field === 'id') 
         return null       
        
        
@@ -71,13 +71,14 @@ function Field({
                 <input 
                     type="radio" 
                     style={{pointerEvents: 'none'}}
-                    onClick={(e)=>e.stopPropagation()}                  
+                    onChange={()=>{}}                  
                     checked={value}                   
                 />
             </div>)
         }      
        
         // If the field value is another JSON, just ignore it.
+        return null
     }
   
    
@@ -91,11 +92,29 @@ function Field({
 
         return false;
     }
+
+    const renderValue = () => {
+        if(typeof typeGuard === 'boolean') 
+        return (
+            <div>
+                {value ? 'checked' : 'unchecked'}
+            </div>
+        )
+        if(typeof typeGuard === 'string' && Date.parse(typeGuard.split('T')[0])) 
+        return (
+            <div>
+                {`${Date.parse(value.split('T')[0]) ? value.split('T')[0] : value}`}
+            </div>
+        )
+        return (<div>
+            {value}
+        </div>)
+    }
     
     return (
-        <div style={{ marginRight:10, display: 'flex', justifyContent: 'space-around', flexDirection: 'column'}}>            
+        <div style={{ marginRight:10, display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>            
             <div style={{minHeight: 60}}>{`${field} :`}  </div>
-            <div>{`${value}`}</div>           
+            {renderValue()}           
             <div>{generateInputField()}</div>
         </div>
        

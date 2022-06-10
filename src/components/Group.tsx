@@ -18,13 +18,15 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             margin:10,
         }}> 
             {
-                Object.entries(group).map(([field,value], indx) => <Field
-                    groupIndex={index}
-                    field={field}
-                    value={value}
-                    onChangeGroup={onChangeGroup}
-                    indx={indx}                  
-                />)
+                Object.entries(group).map(([field,value], indx) => <React.Fragment key={`group-${index}-field${indx}`}>
+                    <Field
+                        groupIndex={index}
+                        field={field}
+                        value={value}
+                        onChangeGroup={onChangeGroup}
+                        indx={indx}                  
+                    />
+                </React.Fragment>)
             }
         </div>
        
