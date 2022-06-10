@@ -10,7 +10,6 @@ interface GroupProps {
 }
 
 function Group({ group, onChangeGroup, index } : GroupProps) {
-    console.log(`reRender -> index: ${index}`)
     
     return (
         <div style={{
@@ -35,11 +34,8 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
 function shallowEqual(prev: { [x: string]: any; }, current: { [x: string]: any; }) {
     const prevKeys = Object.keys(prev)
     const currentKeys = Object.keys(current)
-    console.log(prevKeys.length !== currentKeys.length, 'compare props.length')
     if (prevKeys.length !== currentKeys.length) return false
     for (let key of prevKeys) {
-    console.log((prev[key] !== current[key]), 'compare props one by one')
-
       if (prev[key] !== current[key]) return false
     }
     return true

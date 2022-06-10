@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useCallback, useReducer } from 'react';
 
 // Components
 import Group from './components/Group';
@@ -12,7 +12,10 @@ import {
 
 function App() {  
   const [state, dispatch] = useReducer(reducer, initialState);  
-   
+
+  const onChangeGroup = (index: any,field: any,value: any) => 
+    dispatch({type: 'HANDLE-GROUP-CHANGE', payload: { index, field, value }})
+  
   return (
     <div className="App">    
       {
@@ -21,9 +24,7 @@ function App() {
             <Group  
               index={index} 
               group={group} 
-              onChangeGroup={(index,field,value) =>
-                dispatch({type: 'HANDLE-GROUP-CHANGE', payload: { index, field, value }})
-              }
+              onChangeGroup={onChangeGroup}
             />
           </React.Fragment>
         ))

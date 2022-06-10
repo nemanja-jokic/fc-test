@@ -15,11 +15,12 @@ function Field({
     groupIndex, 
     indx
 } : FieldProps) {
-    console.log(`reRender -> input-index: ${indx}`)
     const [typeGuard, setTypeGuard] = useState(value)
+    const [radioBottonState, setRadioBottonState] = useState(false)
     
-    const  whatTargetValueshouldBeUsed = ( e: { target: { type: string; wasChecked: any; value: any } } ) => {
-       return e.target.type === 'radio' ? !e.target.wasChecked : e.target.value
+    const  whatTargetValueshouldBeUsed = ( e: { target: { id: string; checked: any; value: any } } ) => {
+        setRadioBottonState(!radioBottonState)
+        return e.target.id === 'radio' ? !radioBottonState : e.target.value
     }
 
     const handleInputChange = ( e: any ) => {
@@ -34,7 +35,6 @@ function Field({
        
         if(typeof typeGuard === 'string') {  
             // If the value is a date, it will use a html date picker.
-            console.log(typeGuard.split('T')[0])
             if(Date.parse(typeGuard.split('T')[0]))  
             return <input 
                 type="date"    
@@ -66,13 +66,16 @@ function Field({
         
         
         // If the value is boolean, it will use a radio button with “true/false”.
-        if(typeof typeGuard === 'boolean') 
-        return (<input 
-            type="radio"
-            // how to change default input ts
-            value={`${value}`}
-            onClick={handleInputChange}
-        />)
+        if(typeof typeGuard === 'boolean') {
+            return (<div id="radio" onClick={handleInputChange}>
+                <input 
+                    type="radio" 
+                    style={{pointerEvents: 'none'}}
+                    onClick={(e)=>e.stopPropagation()}                  
+                    checked={value}                   
+                />
+            </div>)
+        }      
        
         // If the field value is another JSON, just ignore it.
     }
