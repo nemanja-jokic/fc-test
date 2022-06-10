@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "62a3107c81cfe2cd976e591d",
+        "index": 0,
+        "guid": "f3c74cdf-7d7d-41d6-aa81-57339ecafbf6",
+        "isActive": false,
+        "balance": "$3,655.13",
+        "picture": "http://placehold.it/32x32",
+        "age": 27,
+        "eyeColor": "brown",
+        "name": "Dorsey Pennington",
+        "gender": "male",
+        "company": "OPTICALL",
+        "email": "dorseypennington@opticall.com",
+        "phone": "+1 (959) 425-2951",
+        "address": "729 Noble Street, Nescatunga, Delaware, 9120",
+        "about": "Excepteur in deserunt voluptate tempor fugiat cillum. Excepteur reprehenderit aliqua sunt ad velit. Laborum deserunt cillum consectetur est. Do irure excepteur et excepteur.\r\n",
+        "registered": "2018-10-09T03:04:42 -02:00"
+    },
+    {
+        "_id": "62a3107c6e64cb7d39b33fde",
+        "index": 1,
+        "guid": "08868e70-a823-4ec9-bb3b-402ac9d1c3fb",
+        "isActive": false,
+        "balance": "$3,193.50",
+        "picture": "http://placehold.it/32x32",
+        "age": 31,
+        "eyeColor": "green",
+        "name": "Darla Guerra",
+        "gender": "female",
+        "company": "EXPOSA",
+        "email": "darlaguerra@exposa.com",
+        "phone": "+1 (910) 422-2987",
+        "address": "299 Cypress Avenue, Cliffside, Indiana, 6618",
+        "about": "Sunt dolor ad occaecat duis velit pariatur est irure. Officia nisi sunt laboris aliqua ullamco magna. Reprehenderit nostrud culpa proident aliquip.\r\n",
+        "registered": "2018-11-21T09:46:34 -01:00"
+    }
+]

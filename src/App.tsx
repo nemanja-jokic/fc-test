@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
 
-function App() {
+// Components
+import Group from './components/Group';
+
+// Reducer
+import {
+  initialState,
+  reducer
+} from './reducer/store'
+
+
+function App() {  
+  const [state, dispatch] = useReducer(reducer, initialState);  
+   
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">    
+      {
+        state.map((group , index)=> (
+          <React.Fragment key={index}>
+            <Group  
+              index={index} 
+              group={group} 
+              onChangeGroup={(index,field,value) =>
+                dispatch({type: 'HANDLE-GROUP-CHANGE', payload: { index, field, value }})
+              }
+            />
+          </React.Fragment>
+        ))
+      }
     </div>
   );
 }
