@@ -4,7 +4,7 @@ import React from 'react'
 import Field from './Field'
 
 interface GroupProps {
-    group: number;
+    group: object;
     onChangeGroup: (groupIndex: number, field: string, value: any) => void;
     index: number;
 }
