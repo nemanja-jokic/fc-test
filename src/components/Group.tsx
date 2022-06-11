@@ -10,13 +10,18 @@ interface GroupProps {
 }
 
 function Group({ group, onChangeGroup, index } : GroupProps) {
-    
-    return (
-        <div style={{
-            display: 'flex',
-            padding:20,
-            margin:20,
-        }}> 
+    // console.log(`group- ${index}`)
+    return ( 
+        <div 
+            style={{
+                display: 'flex',
+                padding:20,
+                marginBottom: 10,
+                backgroundColor: '#78937d',
+                color: 'white',
+                overflowX: 'scroll', 
+            }}
+        > 
             {
                 Object.entries(group).map(([field,value], indx) => <React.Fragment key={`group-${index}-field${indx}`}>
                     <Field

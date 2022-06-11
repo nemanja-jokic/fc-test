@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react';
+import './App.css'
 
 // Components
 import Group from './components/Group';
