@@ -5,6 +5,8 @@
       "isActive": false,
       "balance": "$3,992.37",
       "age": 35,
+      "arr": [1,2,3,4],
+      "obj": {"a":1},
       "eyeColor": "blue",
       "name": "Imogene Farley",
       "gender": "female",

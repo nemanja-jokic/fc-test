@@ -67,7 +67,7 @@ function Field({
         
         // If the value is boolean, it will use a radio button with “true/false”.
         if(typeof typeGuard === 'boolean') {
-            return (<div id="radio" onClick={handleInputChange}>
+            return (<div id="radio" style={{display:'flex', justifyContent: 'center'}} onClick={handleInputChange}>
                 <input 
                     type="radio" 
                     style={{pointerEvents: 'none'}}
@@ -94,27 +94,30 @@ function Field({
     }
 
     const renderValue = () => {
-        if(typeof typeGuard === 'boolean') 
-        return (
-            <div>
-                {value ? 'checked' : 'unchecked'}
-            </div>
-        )
+        if(typeof typeGuard === 'boolean') return value ? 'checked' : 'unchecked'
+
         if(typeof typeGuard === 'string' && Date.parse(typeGuard.split('T')[0])) 
-        return (
-            <div>
-                {`${Date.parse(value.split('T')[0]) ? value.split('T')[0] : value}`}
-            </div>
-        )
-        return (<div>
-            {value}
-        </div>)
+        return `${Date.parse(value.split('T')[0]) ? value.split('T')[0] : value}`
+
+        return value
     }
     
     return (
-        <div style={{ marginRight:10, display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>            
-            <div style={{minHeight: 60}}>{`${field} :`}  </div>
-            {renderValue()}           
+        <div style={{ marginRight:10, display: 'flex',alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column'}}>            
+            {typeof value !== 'object' && <div style={{marginBottom: 20}}>
+                <div style={{minHeight: 60}}>{`${field} :`}  </div>
+                <div style={{
+                    maxWidth: 300, 
+                    width:150, 
+                    height:100, 
+                    overflowY: 'auto',
+                    display: 'flex',
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    padding: 5,
+                }}>{renderValue()}</div>  
+            </div>}
+                     
             <div>{generateInputField()}</div>
         </div>
        
