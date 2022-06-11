@@ -1,5 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import './App.css'
 
 // Components
 import Group from './components/Group';

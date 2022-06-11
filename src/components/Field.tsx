@@ -17,7 +17,6 @@ function Field({
 } : FieldProps) {
     const [typeGuard, setTypeGuard] = useState(value)
     const [radioBottonState, setRadioBottonState] = useState(false)
-    console.log(setTypeGuard)
     
     const  whatTargetValueshouldBeUsed = ( e: { target: { id: string; checked: any; value: any } } ) => {
         setRadioBottonState(!radioBottonState)
@@ -105,19 +104,23 @@ function Field({
     
     return (
         <div style={{ marginRight:10, display: 'flex',alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column'}}>            
-            {typeof value !== 'object' && <div style={{marginBottom: 20}}>
-                <div style={{minHeight: 60}}>{`${field} :`}  </div>
-                <div style={{
-                    maxWidth: 300, 
-                    width:150, 
-                    height:100, 
-                    overflowY: 'auto',
-                    display: 'flex',
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    padding: 5,
-                }}>{renderValue()}</div>   
-            </div>}
+            {
+                typeof value !== 'object' && <div style={{marginBottom: 20}}>
+                    <div style={{marginBottom: 20}}>{`${field} :`}  </div>
+                    <div style={{ 
+                        maxWidth: 220,
+                        minWidth: 180,
+                        border: '1px solid white', 
+                        borderRadius: 20, 
+                        height:100, 
+                        overflowY: 'auto',
+                        display: 'flex',
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        padding: 5,
+                    }}>{renderValue()}</div>   
+                </div>
+            }
                      
             <div>{generateInputField()}</div>
         </div>
