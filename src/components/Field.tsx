@@ -69,15 +69,14 @@ function Field({
         if(typeof typeGuard === 'boolean') {
             return (<div id="radio" style={{display:'flex', justifyContent: 'center'}} onClick={handleInputChange}>
                 <input 
-                    type="radio" 
+                    type="radio"  
                     style={{pointerEvents: 'none'}}
                     onChange={()=>{}}                  
                     checked={value}                   
                 />
             </div>)
         }      
-       
-        // If the field value is another JSON, just ignore it.
+
         return null
     }
   
@@ -101,17 +100,15 @@ function Field({
 
         return value
     }
-    
     return (
         <div style={{ marginRight:10, display: 'flex',alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column'}}>            
-            {
-                typeof value !== 'object' && <div style={{marginBottom: 20}}>
+           <div style={{marginBottom: 20}}>
                     <div style={{marginBottom: 20}}>{`${field} :`}  </div>
                     <div style={{ 
                         maxWidth: 220,
                         minWidth: 180,
                         border: '1px solid white', 
-                        borderRadius: 20,  
+                        borderRadius: 20, 
                         height:100, 
                         overflowY: 'auto',
                         display: 'flex',
@@ -120,7 +117,6 @@ function Field({
                         padding: 5,
                     }}>{renderValue()}</div>   
                 </div>
-            }
                      
             <div>{generateInputField()}</div>
         </div>
