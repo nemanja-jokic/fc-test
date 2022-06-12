@@ -18,7 +18,7 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             // if it is JSON ignore
             return false;
         }catch ( error ) {
-            if(typeof value !== 'object') return false;
+            if(typeof value === 'object') return false;
 
             return true
         }
