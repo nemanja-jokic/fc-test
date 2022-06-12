@@ -11,18 +11,6 @@ interface GroupProps {
 
 function Group({ group, onChangeGroup, index } : GroupProps) {
     // console.log(`group- ${index}`)
-    const checkIfValueIsJSON = ( value: any ) => {
-        try{
-            JSON.parse(value)
-            
-            // if it is JSON ignore
-            return typeof value === 'boolean' ? true : false;
-        }catch ( error ) {
-            if(typeof value === 'object') return false;
-
-            return true
-        }
-    }
     return (
         <div 
             style={{
@@ -35,7 +23,7 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             }}
         >  
             {
-                Object.entries(group).map(([field,value], indx) => checkIfValueIsJSON(value) && <React.Fragment key={`group-${index}-field${indx}`}>
+                Object.entries(group).map(([field,value], indx) => typeof value !== 'object' && <React.Fragment key={`group-${index}-field${indx}`}>
                     <Field
                         groupIndex={index}
                         field={field}
