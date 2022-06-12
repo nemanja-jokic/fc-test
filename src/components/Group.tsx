@@ -23,7 +23,7 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             }}
         > 
             {
-                Object.entries(group).map(([field,value], indx) => <React.Fragment key={`group-${index}-field${indx}`}>
+                Object.entries(group).map(([field,value], indx) => typeof value !== 'object' && <React.Fragment key={`group-${index}-field${indx}`}>
                     <Field
                         groupIndex={index}
                         field={field}
