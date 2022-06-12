@@ -14,11 +14,11 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
     const checkIfValueIsJSON = ( value: any ) => {
         try{
             JSON.parse(value)
-
+            
             // if it is JSON ignore
-            return false;
+            return typeof value === 'boolean' ? true : false;
         }catch ( error ) {
-            if(typeof value !== 'object') return false;
+            if(typeof value === 'object') return false;
 
             return true
         }
