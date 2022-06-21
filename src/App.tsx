@@ -21,13 +21,12 @@ function App() {
     <div className="App">    
       {
         state.map((group , index)=> (
-          <React.Fragment key={index}>
             <Group  
-              index={index} 
+              key={index}
+              index={index}
               group={group} 
               onChangeGroup={onChangeGroup}
             />
-          </React.Fragment>
         ))
       }
     </div>

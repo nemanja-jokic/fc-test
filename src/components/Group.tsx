@@ -11,6 +11,17 @@ interface GroupProps {
 
 function Group({ group, onChangeGroup, index } : GroupProps) {
     // console.log(`group- ${index}`)
+    const acceptedValue = ( value: any ) => {
+        if(typeof value === 'string' && typeof parseInt(value) !== 'number') {
+            try{
+                JSON.parse(value)
+                return false
+            }catch (error) {
+                return true
+            }
+        }
+        return typeof value !== 'object'
+    }
     return (
         <div 
             style={{
@@ -23,15 +34,15 @@ function Group({ group, onChangeGroup, index } : GroupProps) {
             }}
         >  
             {
-                Object.entries(group).map(([field,value], indx) => typeof value !== 'object' && <React.Fragment key={`group-${index}-field${indx}`}>
+                Object.entries(group).map(([field,value], indx) => acceptedValue( value ) && 
                     <Field
+                        key={`group-${index}-field${indx}`}
                         groupIndex={index}
                         field={field}
                         value={value}
                         onChangeGroup={onChangeGroup}
                         indx={indx}                  
-                    />
-                </React.Fragment>)
+                    />)
             }
         </div>
        
